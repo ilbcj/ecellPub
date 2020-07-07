@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+a {
+    color: #333333;
+}
+
+#page {
+    width: 100%;
+    /*height: 100%;*/
+    background: #fff;
+}
+
+#page .page-content {
+    max-width: 1100px;
+    margin:  0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hide {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.flex-row-c {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-nc {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row-sb {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.red-text {
+    color: #DE2810;
+}
+
+.grey-text {
+    color: #999;
+}
+
+.one-title {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,0 +1,212 @@
+.be-bg {
+    background: #e4e4e4;
+    box-shadow:0 3px 9px 0 #e4e4e4;
+}
+
+#page #sort-items .sort-item .sort-form tr > td.paddingx30 {
+    padding-right: 30px;
+}
+
+#page {
+    background: #fff;
+    padding-bottom: 161px;
+}
+
+#page #header {
+    height: 130px;
+    text-align: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+#page #header .logo-img {
+    height: 100%;
+}
+
+#page #banner .swiper-container {
+    width: 100%;
+    height: 400px;
+}
+
+#page #banner .swiper-container img{
+    width: 100%;
+    height: 100%;
+}
+
+#page #banner .swiper-pagination-bullet,
+#page #banner .swiper-pagination-bullet-active {
+    background: #fff;
+    opacity: 1;
+}
+
+#page #banner .swiper-pagination-bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+#page #banner .swiper-pagination-bullet-active {
+    height: 13px;
+    width: 60px;
+    border-radius: 7px;
+}
+
+#page #calender {
+    width: 100%;
+}
+
+#page #calender .calender-content {
+    max-width: 1100px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background:linear-gradient(0deg,#f4f6fe 0%,#dae0fe 100%);
+    box-shadow:0 3px 9px 0 rgba(179,188,223,1);
+    border-radius:10px;
+}
+
+#page #sort-items tbody tr td {
+    text-align: center;
+}
+
+#page #sort-items .sort-item {
+    max-width: 1100px;
+    margin: 0 auto;
+    /*margin-top: 80px;*/
+    height: auto;
+}
+
+#page #sort-items .sort-item  .title {
+    color: #13181A;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#page #sort-items .sort-item .sort-div {
+    padding: 35px 150px;
+    box-sizing: border-box;
+}
+
+#page #sort-items .sort-item .sort-div {
+    width: 100%;
+}
+
+#page #sort-items .sort-item .sort-form {
+    width: 100%;
+    border-spacing: 0;
+}
+
+#page #sort-items .sort-item .sort-form tr > th {
+    color: #ffffff;
+    font-size: 18px;
+    background: #8F784C;
+    padding: 10px 0;
+    font-family: PingFang-SC-Bold;
+    font-weight: normal;
+}
+
+#page #sort-items .top-10 .rank,
+#page #sort-items .top-10 .player,
+#page #sort-items .top-10 .country {
+    width: 16.6%;
+}
+
+#page #sort-items .sort-item .sort-form tr > td,
+#page #sort-items .sort-item .sort-form tr > td a{
+    background: #20221F;
+    padding: 10px 0;
+    color: #fff;
+}
+
+#page #sort-items .sort-item .sort-form tr:nth-child(odd) > td {
+    background: #20221F;
+    opacity: 0.9;
+}
+
+#page #sort-items .sort-item .sort-form tr:nth-child(even) > td {
+    background: #13181A;
+    opacity: 0.9;
+}
+
+#page #sort-items .sort-item .sort-form tr>th.left-bg{
+    background: url('../img/sort-left-bg.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 101% 100%;
+}
+
+#page #sort-items .sort-item .sort-form tr>th.right-bg {
+    background: url('../img/sort-right-bg.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
+}
+
+#page .sort-span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+#page .first-sort {
+    background: #D09627;
+}
+
+#page .second-sort {
+    background: #8E8C89;
+}
+
+#page .third-sort {
+    background: #8F784C;
+}
+
+
+#page #sort-items .sort-item .sort-form tr:nth-child(odd):hover > td:not(.un-hover),
+#page #sort-items .sort-item .sort-form tr:nth-child(even):hover > td:not(.un-hover){
+    cursor: pointer;
+    opacity: 1;
+}
+
+#page #sort-items .sort-item .sort-form tr:nth-child(odd) > td.un-hover:hover + td,
+#page #sort-items .sort-item .sort-form tr:nth-child(even) > td.un-hover:hover + td {
+    opacity: .9;
+}
+
+.cur-dom {
+    color: #0b70de;
+    font-weight: bold;
+    font-size: 13px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.calendar .days li {
+    padding-top: 5px;
+    line-height: unset;
+}
+
+.calendar .calendar-views .selected {
+    color: #000;
+    background: #cbd3ff!important;
+}
+
+.icon-up,
+.icon-down{
+    position: relative;
+}
+
+#calender {
+    background: #fff;
+ }

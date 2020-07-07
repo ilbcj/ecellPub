@@ -1,0 +1,325 @@
+#page {
+    height: auto;
+    background: #cac4df;
+    padding-bottom: 60px;
+    position: relative;
+}
+#page #header {
+    width: 100%;
+    height: 300px;
+    background: url("../img/season-top-bg.png");
+    /*background: url("../img/season-top-bg.png") no-repeat fixed center center;*/
+    /*background-size: cover;*/
+    padding-top: 90px;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+#header .season-title {
+    background: rgba(62,49,105,.8);
+    color: #ffffff;
+    width: 400px;
+    height: 180px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+
+}
+
+#header .season-title .date {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #FFFFFF;
+    opacity:1;
+}
+
+#header .season-title .title {
+    opacity:1;
+    font-size: 22px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+#header .season-title .players {
+    opacity:1;
+    font-size: 22px;
+    color: #FFFFFF;
+}
+
+#content {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-top: 320px;
+    position: relative;
+}
+
+#content .details {
+    margin-bottom: 50px;
+}
+
+#content .details .left {
+    width: 35%;
+    margin-right: 3%;
+}
+
+#content .details .right {
+    width: 62%;
+}
+
+.item {
+    width: 100%;
+    height: 140px;
+    background: #DBD8EA;
+    border: 4px solid #fff;
+    border-radius: 20px;
+    padding: 15px 10px 3px 7px;
+    box-sizing: border-box;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.item .title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.item .view-detail a {
+    color: #2E3AD5;
+    font-weight: bold;
+    font-size: 16px;
+    opacity: .8;
+}
+
+.item .view-detail a:hover {
+    opacity: 1;
+}
+
+.item .country-flag img{
+    width: 32px;
+    height: 20px;
+}
+
+.item .flex-row-sb {
+    margin-bottom: 20px;
+}
+
+.item .vs {
+    font-size: 20px;
+    color: #DE2810;
+    margin: 0 10px;
+}
+
+.team-logo {
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 5px;
+}
+
+.team-logo img.win {
+    border-radius: 50%;
+    border: 2px solid #DE2810;
+}
+
+.team-logo img.lose {
+    border-radius: 50%;
+    border: 2px solid #656464;
+}
+
+.team-logo img {
+    width: 80%;
+    height: 80%;
+}
+
+.team-logo .win-bg,
+.team-logo .lose-bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item .country-flag {
+    margin-top: 5px;
+}
+
+.right .pk-list {
+    width: 100%;
+    border-spacing: 0;
+}
+.right .pk-list thead tr {
+    box-shadow:0 0 16px 0 rgba(219,213,246,1);
+
+}
+
+.right .pk-list thead tr th {
+    background: #EFECFE;
+    font-size: 18px;
+    padding: 15px 0;
+    color: #333333;
+    text-align: center;
+}
+
+.right .pk-list tbody tr td {
+    text-align: center;
+    color: #333333;
+    font-weight: bold;
+}
+
+.right .pk-list tbody tr td:nth-child(even) {
+    background: #fff;
+}
+
+.right .pk-list tbody tr td:nth-child(odd) {
+    background: #F7F5FE;
+}
+
+.right .pk-list tbody tr:nth-child(odd) td {
+    border-bottom: 1px solid #e2e1e4;
+}
+
+.right .pk-list tbody tr:nth-child(even) td {
+    border-bottom: 1px solid #e2e1e4;
+}
+.right .pk-list tbody tr:nth-child(even) td:last-child {
+    background: #F7F5FE;
+}
+
+.right .pk-list tbody tr td:last-child {
+    /*width: 86px;
+    height: 60px;*/
+    width: 133px;
+    overflow: hidden;
+}
+
+.right .pk-list tbody tr td:last-child a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.right .pk-list tbody tr td.rowspan {
+    padding: 35px 0;
+}
+
+.right .pk-list thead tr {
+    position: relative;
+}
+
+.right .pk-list .tag {
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: -4px;
+    right: -17px;
+    width: 60px;
+    height: 18px;
+    transform: rotateZ(45deg);
+    transform-origin: 30% 64%;
+    color: #fff;
+}
+
+.right .pk-list .win-tag {
+    background: #DE2810;
+}
+
+.defeat-tag {
+    background: #666666;
+}
+
+.right .triangle {
+    display: inline-block;
+    position: absolute;
+    left: -38px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-right: 19px solid #EFECFE;
+    border-bottom: 20px solid transparent;
+    border-left: 19px solid transparent;
+}
+
+.back-home a{
+    display: inline-block;
+    background: url("../img/bak-home-bg.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 12px 20px;
+    cursor: pointer;
+    width: 140px;
+}
+
+#demo img.down {
+    position: absolute;
+    top: 338px;
+    right: 42%;
+}
+
+#dt {
+    margin-top: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    box-shadow:0 1px 9px 0 rgba(178,171,206,1);
+    border-radius:30px;
+    font-size: 18px;
+    color: #333333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#dd {
+    border-radius: 5px;
+    background: linear-gradient(0deg,#f4f6fe 0%,#dae0fe 100%);
+}
+
+.calender-content {
+    width: 440px;
+    height: 390px;
+    padding: 20px;
+}
+
+.cur-dom {
+    color: #0b70de;
+    font-weight: bold;
+    font-size: 13px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.calendar .days li {
+    padding-top: 5px;
+    line-height: unset;
+}
+
+#cover-mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    /*display: none;*/
+}
+
+.calendar .calendar-views .selected {
+    color: #000;
+    background: #cbd3ff!important;
+}

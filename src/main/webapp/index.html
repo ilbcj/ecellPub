@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ecell</title>
+    <link rel="stylesheet" href="../dep/swiper/swiper-4.53.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../dep/calendar/calendar.css">
+    <link rel="stylesheet" href="public/css/public.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+            <img class="logo-img" src="img/logo.jpg" alt="">
+        </div>
+        <div id="banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" >
+                        <a href="">
+                            <img src="img/banner.png">
+                        </a>
+                    </div>
+                    <div class="swiper-slide" >
+                        <a href="">
+                            <img src="img/banner2.jpg">
+                        </a>
+                    </div>
+                    <div class="swiper-slide" >
+                        <a href="">
+                            <img src="img/banner3.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div id="calender">
+            <!--<div class="calender-content">-->
+                <div id="demo">
+                    <div class="calender-content">
+                        <div id="ca"></div>
+                    </div>
+                </div>
+
+            <!--</div>-->
+        </div>
+        <div id="sort-items">
+            <div class="sort-item margin-80 be-bg top-10">
+                <div class="sort-div text-center">
+                    <div class="title text-center">前十排行榜</div>
+                    <table class="sort-form">
+                        <thead>
+                            <tr>
+                                <th class="rank">排名</th>
+                                <th class="player">选手</th>
+                                <th class="country">国籍</th>
+                                <th>
+                                    胜率
+                                    <a href="" class="icon-up">
+                                        <img src="img/icon-up.png" alt="">
+                                    </a>
+                                    <a href="" class="icon-down">
+                                        <img src="img/icon-down.png" alt="">
+                                    </a>
+                                </th>
+                                <th>
+                                    APM
+                                    <a href="" class="icon-up">
+                                        <img src="img/icon-up.png" alt="">
+                                    </a>
+                                    <a href="" class="icon-down">
+                                        <img src="img/icon-down.png" alt="">
+                                    </a>
+                                </th>
+                                <th>
+                                    运营
+                                    <a href="" class="icon-up">
+                                        <img src="img/icon-up.png" alt="">
+                                    </a>
+                                    <a href="" class="icon-down">
+                                        <img src="img/icon-down.png" alt="">
+                                    </a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-id="1">
+                                <td><span class="sort-span first-sort">1</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span second-sort">2</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span third-sort">3</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span">4</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span">5</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span">6</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span">7</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span">8</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span">9</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td><span class="sort-span">10</span></td>
+                                <td><a href="views/player-details/index.html">张三</a></td>
+                                <td>中国</td>
+                                <td class="paddingx30">88%</td>
+                                <td class="paddingx30">333</td>
+                                <td class="paddingx30">1500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="sort-item be-bg qualifier">
+                <div class="sort-div text-center">
+                    <div class="title text-center">预选赛结果(12强)</div>
+                    <table class="sort-form">
+                        <thead>
+                        <tr>
+                            <th class="left-bg">排名</th>
+                            <th class="right-bg">选手</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-id="1">
+                            <td><span class="first-sort sort-span">1</span></td>
+                            <td>张三</td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span second-sort">2</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span third-sort">3</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">4</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">5</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">6</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">7</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">8</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">9</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">10</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">11</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+                        <tr data-id="1">
+                            <td><span class="sort-span">12</span></td>
+                            <td><a href="views/player-details/index.html">张三</a></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="sort-item be-bg regular-season">
+                <div class="sort-div text-center">
+                    <div class="title text-center">常规赛</div>
+                    <table class="sort-form">
+                        <thead>
+                            <tr>
+                                <th class="left-bg">排名</th>
+                                <th class="right-bg">选手</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-id="1">
+                                <td>冠军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>亚军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>季军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>殿军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td rowspan="4" class="un-hover">8强</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td rowspan="8"  style="background: #13181A" class="un-hover">16强</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="sort-item be-bg">
+                <div class="sort-div text-center">
+                    <div class="title text-center">季后赛</div>
+                    <table class="sort-form">
+                        <thead>
+                            <tr>
+                                <th class="left-bg">排名</th>
+                                <th class="right-bg">选手</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-id="1">
+                                <td>冠军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>亚军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>季军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>殿军</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td rowspan="4" class="un-hover">8强</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td rowspan="8" style="background: #13181A" class="un-hover">16强</td>
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                            <tr data-id="1">
+                                <td>张三</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../dep/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../dep/swiper/swiper-4.5.3.min.js"></script>
+    <script src="../dep/calendar/js/calendar.js"></script>
+    <script src="public/js/public.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+</html>
