@@ -1,17 +1,12 @@
 package com.ilbcj.ecell.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ilbcj.ecell.dto.PubDaymatchDTO;
-import com.ilbcj.ecell.dto.PubMatchCalendarDTO;
-import com.ilbcj.ecell.dto.PubPlayerProfileDTO;
 import com.ilbcj.ecell.service.MatchService;
 
 import com.ilbcj.ecell.util.R;
@@ -23,6 +18,11 @@ public class PublicController {
 	@Autowired
 	private MatchService matchService;
 	
+	/**
+	 * 查询选手数据
+	 * @param players，nick数组
+	 * @return
+	 */
 	@RequestMapping(value="/profile")
 	public String queryPlayProfile(@RequestBody Map<String,Object> parm) {
 		
@@ -35,7 +35,11 @@ public class PublicController {
 				
 	}
 	
-	
+	/**
+	 * 查询所有选手nick，用于选手数据页查询列表
+	 * @param 空
+	 * @return
+	 */
 	@RequestMapping(value="/player/list")
 	public String queryPlayList(@RequestBody Map<String,Object> parm) {
 		
@@ -47,38 +51,23 @@ public class PublicController {
 		return R.error("查询选手数据失败，请稍后再试！").toString();
 				
 	}
-//	@RequestMapping(value="/calendar", method = RequestMethod.POST)
-//	public R queryCalendar(@RequestBody Map<String,Object> parm) {
-//		
-//		String month = (String)parm.get("month");
-//		if(month == null) {
-//			return R.error("查询赛程日历数据失败，没有指定要查询的月份");
-//		}
-//		
-//		PubMatchCalendarDTO calendar = matchService.queryMatchCalendar(month);
-//		
-//		if(calendar != null) {
-//			return R.ok().put("calendar", calendar);
-//		}
-//		
-//		return R.error("查询赛程日历数据失败，请稍后再试！");
-//	}
-//	
-//	@RequestMapping(value="/daymatch", method = RequestMethod.POST)
-//	public R queryDaymatch(@RequestBody Map<String,Object> parm) {
-//		
-//		String day = (String)parm.get("day");
-//		if(day == null) {
-//			return R.error("查询比赛日据失败，没有指定要查询的日期");
-//		}
-//		
-//		List<PubDaymatchDTO> daymatches = matchService.queryDaymatch(day);
-//		
-//		if(daymatches != null) {
-//			return R.ok().put("daymatches", daymatches);
-//		}
-//		
-//		return R.error("查询比赛日据失败，请稍后再试！");
-//	}
+	
+	/**
+	 * 查询所有赛季名称，用于首页查询列表
+	 * @param 空
+	 * @return
+	 */
+	@RequestMapping(value="/season/list")
+	public String querySeasonList(@RequestBody Map<String,Object> parm) {
+		
+		String profile = matchService.querySeasonList(parm);
+		
+		if(profile != null) {
+			return profile;
+		}
+		return R.error("查询赛季数据失败，请稍后再试！").toString();
+				
+	}
+
 	
 }

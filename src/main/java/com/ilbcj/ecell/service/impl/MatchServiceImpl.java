@@ -35,4 +35,11 @@ public class MatchServiceImpl implements MatchService {
 		String playerListJsonStr = restTemplate.postForObject("http://127.0.0.1:8080/cell/player/basic/list", params, String.class);
 		return playerListJsonStr;
 	}
+
+	@Override
+	public String querySeasonList(Map<String, Object> parm) {
+		Map<String,Object> params = new HashMap<String,Object>();
+		String seasonListJsonStr = restTemplate.postForObject("http://127.0.0.1:8080/cell/season/basic/list", params, String.class);
+		return seasonListJsonStr;
+	}
 }

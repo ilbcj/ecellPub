@@ -1,20 +1,3 @@
-//选手库显示
-/*$('.current-player').click(function () {
-    $('.select-player-list').slideUp(200);
-    $(this).siblings('.select-player-list').slideToggle(200);
-});*/
-$('.current-player').click(function () {
-    $(this).siblings('.select-player-list').slideToggle(200);
-    $(this).parentsUntil('.player-content').eq(1).siblings('.pull-left').find('.select-player-list').slideUp(200);
-});
-
-document.body.onclick = function(e){
-    e = window.event || e;
-    var obj = $(e.srcElement || e.target);
-    if (obj.attr('data-toggle')!='down') {
-        $('.select-player-list').slideUp(200);
-    }
-};
 
 function loadPlayerProfile( basePath, nick, playId ) {
 	$('#profile_player' + playId + '_nick').html('--');
@@ -85,7 +68,7 @@ function loadPlayerProfile( basePath, nick, playId ) {
 				var color = game.result === 'WIN' ? 'red' : 'grey';
 				var htmlText = '[' + game.type + '] ' + game.date + ' <span style="color:' + color + '">' + game.result + '</span> ' + game.adversary + ' ON ' + game.map;
 				$('#profile_player' + playId + '_last_' + (index+1)).html(htmlText);
-				$('#profile_player' + playId + '_last_' + (index+1)).removeClass('displaynone');
+				//$('#profile_player' + playId + '_last_' + (index+1)).removeClass('hide');
 			});
 			
 		} else {
@@ -103,17 +86,58 @@ function updatePlayerProfile() {
 	loadPlayerProfile(basePath, playerNick, playerId);
 };
 
+jQuery.fn.fastLiveFilter = function(list, options) {
+    options = options || {};
+    list = jQuery(list);
+    var input = this;
+    var lastFilter = '';
+    var timeout = options.timeout || 0;
+    var callback = options.callback || function() {};
+    var keyTimeout;
+    var lis = list.children();
+    var len = lis.length;
+    var oldDisplay = len > 0 ? lis[0].style.display : "block";
+    callback(len);
+    input.change(function() {
+        var filter = input.val().toLowerCase();
+        var li, innerText;
+        var numShown = 0;
+        for (var i = 0; i < len; i++) {
+            li = lis[i];
+            innerText = !options.selector ?
+                (li.textContent || li.innerText || "") :
+                $(li).find(options.selector).text();
+            if (innerText.toLowerCase().indexOf(filter) >= 0) {
+                if (li.style.display == "none") {
+                    li.style.display = oldDisplay;
+                }
+                numShown++;
+            } else {
+                if (li.style.display != "none") {
+                    li.style.display = "none";
+                }
+
+            }
+        }
+        callback(numShown);
+        return false;
+    }).keydown(function() {
+        clearTimeout(keyTimeout);
+        keyTimeout = setTimeout(function() {
+            if( input.val() === lastFilter ) return;
+            lastFilter = input.val();
+            input.change();
+        }, timeout);
+    });
+    return this;
+};
+
 $(function () {
 	'use strict';
-	
-	//document.getElementById('contextWrap').addEventListener('touchmove',  function (e) { e.preventDefault(); }, { passive: false });
-
-
 	
 	// , headers: { 'x-requested-with': 'XMLHttpRequest' }
     $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
     
-
 	// update $.post, contentType --> application/json
 	$.extend({
 		'postjson': function( url, data, success, dataType ) {
@@ -134,17 +158,6 @@ $(function () {
 	
 	// pace optinos
 	Pace.options.ajax.trackMethods.push("POST");
-	
-/*	Pace.on('start', function(){
-		$('#mask_modal').modal({
-			closable: false,
-	        inverted: true,
-	        blurring: false
-	    }).modal("show");
-	});
-	Pace.on('done', function(){
-		$('#mask_modal').modal("close");
-	});*/
 	
 	// update date.toLocaleString
 	Date.prototype.toLocaleString = function() {
@@ -180,6 +193,29 @@ $(function () {
 			
 			$('.profileSelectPlayerItem').on('click.ECELL.admin.detail', updatePlayerProfile);
 			
+			    //选手库显示
+		    $('.current-player').click(function () {
+		        $(this).siblings('.select-player-list').slideToggle(200);
+		        $(this).parentsUntil('.player-content').eq(1).siblings('.pull-left').find('.select-player-list').slideUp(200);
+		    });
+		
+		    $('.select-player').click(function (e) {
+		        e.stopPropagation();
+		    });
+		    
+		    $('.select-player-list ul li').click(function () {
+		    	$('#search_input1, #search_input2').text('');
+		    	$('.search_input1, .search_input2').val('');
+		    	$('.search_input1, .search_input2').change();
+		        $(this).parentsUntil('.select-player').eq(1).slideUp(200);
+		    });
+		    
+		    $('body').click(function () {
+		        $('.select-player-list').slideUp(200);
+		    });
+		    //搜索选手过滤
+		    $('.search_input1').fastLiveFilter('#profile_select_player1');
+		    $('.search_input2').fastLiveFilter('#profile_select_player2');
 			
 		} else {
 			var message = '获取选手列表信息失败![' + data.msg + ', ' + data.code + ']，请联系管理员！';

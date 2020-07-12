@@ -9,4 +9,6 @@ public interface MatchService {
 
 	public String queryPlayerList(Map<String, Object> parm);
 
+	public String querySeasonList(Map<String, Object> parm);
+
 }
