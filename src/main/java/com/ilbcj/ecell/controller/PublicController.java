@@ -1,5 +1,6 @@
 package com.ilbcj.ecell.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,20 @@ public class PublicController {
 				
 	}
 
-	
+	/**
+	 * 查询排名前十选手，用于首页查询列表
+	 * @param 空
+	 * @return
+	 */
+	@RequestMapping(value="/player/top10")
+	public String queryTop10Players(@RequestBody Map<String,Object> parm) {
+		
+		String top10Players = matchService.queryTop10(parm);
+		
+		if(top10Players != null) {
+			return top10Players;
+		}
+		return R.error("查询top10选手数据失败，请稍后再试！").toString();
+				
+	}
 }

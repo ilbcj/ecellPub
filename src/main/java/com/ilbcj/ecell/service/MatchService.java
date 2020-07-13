@@ -11,4 +11,6 @@ public interface MatchService {
 
 	public String querySeasonList(Map<String, Object> parm);
 
+	public String queryTop10(Map<String, Object> parm);
+
 }
