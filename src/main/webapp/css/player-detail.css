@@ -85,19 +85,21 @@
      color: #999999;
  }
 
- #page .select-player .select-player-list input::placeholder {
-     color: #999999;
- }
+#page .select-player .select-player-list input::placeholder {
+    color: #999999;
+}
 
- #page .select-player .select-player-list ul {
+#page .select-player .select-player-list ul {
     max-height: 255px;
     overflow: scroll;
-     scrollbar-width: none;
- }
+    scrollbar-width: none;
+}
 
- #page .select-player .select-player-list ul li {
-     text-align: center;
- }
+#page .select-player .select-player-list ul li {
+    text-align: center;
+    padding: 4px 0;
+    cursor: pointer;
+}
 
  #page .select-player .select-player-list ul li a {
     display: inline-block;

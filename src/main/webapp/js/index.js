@@ -2,7 +2,7 @@ $(function () {
     //初始化轮播图
     var swiper = new Swiper('.swiper-container', {
         autoplay: {
-            delay:3000,
+            delay:6000,
             disableOnInteraction : false,
         },
         pagination: {
