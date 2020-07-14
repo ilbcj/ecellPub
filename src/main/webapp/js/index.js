@@ -45,7 +45,7 @@ $(function () {
             }
         ],
         onSelected: function (view, date, data) {
-            pageJump('views/season/index.html');
+            //pageJump('views/season/index.html');
             console.log(date)
         }
     });
@@ -88,9 +88,64 @@ $(function () {
     $('body').click(function () {
         $('.season-list').slideUp(200);
     });
-
-	//搜索赛季过滤
+    
+    //搜索赛季过滤
     $('.search_input').fastLiveFilter('.search_list');
+   
+   	$.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+    
+	// update $.post, contentType --> application/json
+	$.extend({
+		'postjson': function( url, data, success, dataType ) {
+			$.ajax({
+				type: 'POST',
+				contentType: 'application/json;charset=UTF-8',
+				url: url,
+				data: data,
+				crossDomain: true, 
+				xhrFields: {withCredentials: true},
+				success: success,
+				dataType: dataType
+			});
+		}
+	});
+	
+	// Update table style
+	
+	// pace optinos
+	Pace.options.ajax.trackMethods.push("POST");
+	
+	// update date.toLocaleString
+	Date.prototype.toLocaleString = function() {
+        return this.getFullYear() + "年" + (this.getMonth() + 1) + "月" + this.getDate() + "日 " + this.getHours() + "点" + this.getMinutes() + "分" + this.getSeconds() + "秒";
+	};
+	Date.prototype.toLocaleString = function() {
+        return this.getFullYear() + "-" + (this.getMonth() + 1) + "-" + this.getDate() + " " + this.getHours() + ":" + this.getMinutes() + ":" + this.getSeconds();
+	};
+	
+	var basePath = '';
+    
+    //加载top10
+    loadTop10(basePath, 1, 'desc');
+    
+    $('#top10_win_desc').click(function(){
+    	loadTop10(basePath, 1, 'desc');
+    });
+    $('#top10_win_asc').click(function(){
+    	loadTop10(basePath, 1, 'asc');
+    });
+    $('#top10_apm_desc').click(function(){
+    	loadTop10(basePath, 2, 'desc');
+    });
+    $('#top10_apm_asc').click(function(){
+    	loadTop10(basePath, 2, 'asc');
+    });
+    $('#top10_resource_desc').click(function(){
+    	loadTop10(basePath, 3, 'desc');
+    });
+    $('#top10_resource_asc').click(function(){
+    	loadTop10(basePath, 3, 'asc');
+    });
     
     //查询赛季列表信息
     var urlTarget = basePath + '/public/season/list';
@@ -134,35 +189,68 @@ $(function () {
 		    $('.search_input2').fastLiveFilter('#profile_select_player2');*/
 			
 		} else {
-			var message = '获取选手列表信息失败![' + data.msg + ', ' + data.code + ']，请联系管理员！';
+			var message = '获取赛季列表信息失败![' + data.msg + ', ' + data.code + ']，请稍后再试！';
 			tipMessage(message, false);
 		}
 	}, 'json');
 });
 
+function loadTop10(basePath, type, sort) {
+	//type:1 - winning, 2 - apm, 3 - resource
+	//sort: desc(default), asc
+	var postData = {};
+	postData.type = type;
+	postData.sort = sort;
+	var urlTarget = basePath + '/public/player/top10';
+	$.postjson(urlTarget + '?rand=' + Math.random(), JSON.stringify(postData), function(data,textStatus, jqXHR) {
+		if( data.code == 0 ) {
+			var top10 = data.top10Players;
+			for(var index = 0; index < top10.length; index++) {
+				var rId = 0+index+1;
+				$('#top10row' + rId).data('id', top10[index].nick);
+				$('#top10n' + rId).html(top10[index].nick);
+				var country = '';
+				if( top10[index].country == 'CN') {
+					country = '中国';
+				}
+				else if( top10[index].country == 'KR') {
+					country = '韩国';
+				}
+				$('#top10c' + rId).html(country);
+				$('#top10w' + rId).html(top10[index].winning);
+				$('#top10a' + rId).html(top10[index].apm);
+				$('#top10r' + rId).html(top10[index].resource);
+			}
+		} else {
+			var message = '获取Top10选手列表信息失败![' + data.msg + ', ' + data.code + ']，请稍后再试！';
+			tipMessage(message, false);
+		}
+	}, 'json');
+}
+
 //升序
 function ascendingOrder(dom){
-    var arr = $('.top-10 tbody tr');
+    /*var arr = $('.top-10 tbody tr');
     arr.sort(function(a,b){
         return $(a).find(dom).html()>$(b).find(dom).html()?1:-1;
     });
     $('.top-10 tbody').empty().append(arr);
-    sort();
+    sort();*/
 }
 
 //降序
 function descendingOrder(dom) {
-    var arr = $('.top-10 tbody tr');
+    /*var arr = $('.top-10 tbody tr');
     arr.sort(function(a,b){
         return $(a).find(dom).html()<$(b).find(dom).html()?1:-1;
     });
     $('.top-10 tbody').empty().append(arr);
-    sort();
+    sort();*/
 }
 
 //纠正排名
 function sort() {
-    for (var i = 0; i < $('.top-10 tbody tr').length; i++) {
+    /*for (var i = 0; i < $('.top-10 tbody tr').length; i++) {
         var current_dom = $('.top-10 tbody tr').eq(i);
         current_dom.find('span').html(i+1);
         if (i == 0) {
@@ -174,7 +262,7 @@ function sort() {
         } else {
             current_dom.find('span').removeClass('first-sort second-sort third-sort');
         }
-    }
+    }*/
 }
 
 //过滤输入

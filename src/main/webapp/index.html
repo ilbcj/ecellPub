@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>ecell</title>
+    <link rel="stylesheet" href="../dep/pacejs/pace.css">
+    <link rel="stylesheet" href="../dep/lobibox/css/lobibox.css">
     <link rel="stylesheet" href="../dep/swiper/swiper-4.53.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../dep/calendar/calendar.css">
@@ -59,113 +61,113 @@
                                 <th class="country">国籍</th>
                                 <th>
                                     胜率
-                                    <a href="javascript:;" class="icon-up" onclick="ascendingOrder('.win-pro')">
+                                    <a id="top10_win_desc" href="javascript:;" class="icon-up" onclick="ascendingOrder('.win-pro')">
                                         <img src="img/icon-up.png" alt="">
                                     </a>
-                                    <a href="javascript:;" class="icon-down" onclick="descendingOrder('.win-pro')">
+                                    <a id="top10_win_asc" href="javascript:;" class="icon-down" onclick="descendingOrder('.win-pro')">
                                         <img src="img/icon-down.png" alt="">
                                     </a>
                                 </th>
                                 <th>
                                     APM
-                                    <a href="javascript:;" class="icon-up" onclick="ascendingOrder('.apm')">
+                                    <a id="top10_apm_desc" href="javascript:;" class="icon-up" onclick="ascendingOrder('.apm')">
                                         <img src="img/icon-up.png" alt="">
                                     </a>
-                                    <a href="javascript:;" class="icon-down" onclick="descendingOrder('.apm')">
+                                    <a id="top10_apm_asc" href="javascript:;" class="icon-down" onclick="descendingOrder('.apm')">
                                         <img src="img/icon-down.png" alt="">
                                     </a>
                                 </th>
                                 <th>
                                     运营
-                                    <a href="javascript:;" class="icon-up" onclick="ascendingOrder('.operate')">
+                                    <a id="top10_resource_desc" href="javascript:;" class="icon-up" onclick="ascendingOrder('.operate')">
                                         <img src="img/icon-up.png" alt="">
                                     </a>
-                                    <a href="javascript:;" class="icon-down" onclick="descendingOrder('.operate')">
+                                    <a id="top10_resource_asc" href="javascript:;" class="icon-down" onclick="descendingOrder('.operate')">
                                         <img src="img/icon-down.png" alt="">
                                     </a>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-id="1">
+                            <tr id="top10row1" data-id="">
                                 <td><span class="sort-span first-sort">1</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">70%</td>
-                                <td class="paddingx30 apm">330</td>
-                                <td class="paddingx30 operate">1477</td>
+                                <td id="top10n1"></td>
+                                <td id="top10c1"></td>
+                                <td id="top10w1" class="paddingx30 win-pro"></td>
+                                <td id="top10a1" class="paddingx30 apm"></td>
+                                <td id="top10r1" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row2" data-id="">
                                 <td><span class="sort-span second-sort">2</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">60%</td>
-                                <td class="paddingx30 apm">338</td>
-                                <td class="paddingx30 operate">1500</td>
+                                <td id="top10n2"></td>
+                                <td id="top10c2"></td>
+                                <td id="top10w2" class="paddingx30 win-pro"></td>
+                                <td id="top10a2" class="paddingx30 apm"></td>
+                                <td id="top10r2" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row3" data-id="">
                                 <td><span class="sort-span third-sort">3</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">55%</td>
-                                <td class="paddingx30 apm">225</td>
-                                <td class="paddingx30 operate">1293</td>
+                                <td id="top10n3"></td>
+                                <td id="top10c3"></td>
+                                <td id="top10w3" class="paddingx30 win-pro"></td>
+                                <td id="top10a3" class="paddingx30 apm"></td>
+                                <td id="top10r3" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row4" data-id="">
                                 <td><span class="sort-span">4</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">44%</td>
-                                <td class="paddingx30 apm">339</td>
-                                <td class="paddingx30 operate">1380</td>
+                                <td id="top10n4"></td>
+                                <td id="top10c4"></td>
+                                <td id="top10w4" class="paddingx30 win-pro"></td>
+                                <td id="top10a4" class="paddingx30 apm"></td>
+                                <td id="top10r4" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row5" data-id="">
                                 <td><span class="sort-span">5</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">33%</td>
-                                <td class="paddingx30 apm">482</td>
-                                <td class="paddingx30 operate">1150</td>
+                                <td id="top10n5"></td>
+                                <td id="top10c5"></td>
+                                <td id="top10w5" class="paddingx30 win-pro"></td>
+                                <td id="top10a5" class="paddingx30 apm"></td>
+                                <td id="top10r5" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row6" data-id="">
                                 <td><span class="sort-span">6</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">22%</td>
-                                <td class="paddingx30 apm">288</td>
-                                <td class="paddingx30 operate">1250</td>
+                                <td id="top10n6"></td>
+                                <td id="top10c6"></td>
+                                <td id="top10w6" class="paddingx30 win-pro"></td>
+                                <td id="top10a6" class="paddingx30 apm"></td>
+                                <td id="top10r6" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row7" data-id="">
                                 <td><span class="sort-span">7</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">88%</td>
-                                <td class="paddingx30 apm">333</td>
-                                <td class="paddingx30 operate">1350</td>
+                                <td id="top10n7"></td>
+                                <td id="top10c7"></td>
+                                <td id="top10w7" class="paddingx30 win-pro"></td>
+                                <td id="top10a7" class="paddingx30 apm"></td>
+                                <td id="top10r7" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row8" data-id="">
                                 <td><span class="sort-span">8</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">88%</td>
-                                <td class="paddingx30 apm">111</td>
-                                <td class="paddingx30 operate">2440</td>
+                                <td id="top10n8"></td>
+                                <td id="top10c8"></td>
+                                <td id="top10w8" class="paddingx30 win-pro"></td>
+                                <td id="top10a8" class="paddingx30 apm"></td>
+                                <td id="top10r8" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row9" data-id="">
                                 <td><span class="sort-span">9</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">88%</td>
-                                <td class="paddingx30 apm">320</td>
-                                <td class="paddingx30 operate">4593</td>
+                                <td id="top10n9"></td>
+                                <td id="top10c9"></td>
+                                <td id="top10w9" class="paddingx30 win-pro"></td>
+                                <td id="top10a9" class="paddingx30 apm"></td>
+                                <td id="top10r9" class="paddingx30 operate"></td>
                             </tr>
-                            <tr data-id="1">
+                            <tr id="top10row10" data-id="">
                                 <td><span class="sort-span">10</span></td>
-                                <td><a href="javascript:;">张三</a></td>
-                                <td>中国</td>
-                                <td class="paddingx30 win-pro">88%</td>
-                                <td class="paddingx30 apm">520</td>
-                                <td class="paddingx30 operate">1548</td>
+                                <td id="top10n10"></td>
+                                <td id="top10c10"></td>
+                                <td id="top10w10" class="paddingx30 win-pro"></td>
+                                <td id="top10a10" class="paddingx30 apm"></td>
+                                <td id="top10r10" class="paddingx30 operate"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -392,6 +394,8 @@
         </div>
     </div>
     <script src="../dep/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../dep/pacejs/pace.js"></script>
+    <script src="../dep/lobibox/js/notifications.js"></script>
     <script src="../dep/swiper/swiper-4.5.3.min.js"></script>
     <script src="../dep/calendar/js/calendar.js"></script>
     <script src="public/js/public.js"></script>
