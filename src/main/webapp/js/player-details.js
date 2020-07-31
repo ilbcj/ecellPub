@@ -50,13 +50,13 @@ function loadPlayerProfile( basePath, nick, playId ) {
 			$('#profile_player' + playId + '_race_text').html(raceText);
 			$('#profile_player' + playId + '_age').html(player.age);
 			$('#profile_player' + playId + '_team').html(player.team);
-			var winningText = '胜率 ' + player.winningVA + ' ' + player.vacount;// '10:30'
+			var winningText = '胜率 ' + player.winningVA + ' ' + player.vacount;// '10-20'
 			$('#profile_player' + playId + '_winning').html(winningText);
-			winningText = 'VT ' + player.winningVT + ' ' + player.vtcount;//'28% 6:15';
+			winningText = 'VT ' + player.winningVT + ' ' + player.vtcount;//'28% 6-9';
 			$('#profile_player' + playId + '_winning_vt').html(winningText);
-			winningText = 'VP ' + player.winningVP + ' ' + player.vpcount;//'28% 6:15';
+			winningText = 'VP ' + player.winningVP + ' ' + player.vpcount;//'28% 6-9';
 			$('#profile_player' + playId + '_winning_vp').html(winningText);
-			winningText = 'VZ ' + player.winningVZ + ' ' + player.vzcount;//'28% 6:15';
+			winningText = 'VZ ' + player.winningVZ + ' ' + player.vzcount;//'28% 6-9';
 			$('#profile_player' + playId + '_winning_vz').html(winningText);
 			$('#profile_player' + playId + '_apm').html(player.apm);
 			$('#profile_player' + playId + '_duration').html(player.duration);
