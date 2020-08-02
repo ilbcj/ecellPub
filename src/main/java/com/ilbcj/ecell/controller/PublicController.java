@@ -1,6 +1,5 @@
 package com.ilbcj.ecell.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +83,23 @@ public class PublicController {
 			return top10Players;
 		}
 		return R.error("查询top10选手数据失败，请稍后再试！").toString();
+				
+	}
+	
+	/**
+	 * 查询比赛日信息和结果
+	 * @param 空
+	 * @return
+	 */
+	@RequestMapping(value="/schedule/matches")
+	public String queryScheduleMatches(@RequestBody Map<String,Object> parm) {
+		
+		String matches = matchService.queryScheduleMatches(parm);
+		
+		if(matches != null) {
+			return matches;
+		}
+		return R.error("查询比赛日数据失败，请稍后再试！").toString();
 				
 	}
 }

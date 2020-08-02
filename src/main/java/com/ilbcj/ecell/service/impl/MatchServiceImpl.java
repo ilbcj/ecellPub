@@ -51,4 +51,12 @@ public class MatchServiceImpl implements MatchService {
 		String top10ListJsonStr = restTemplate.postForObject("http://127.0.0.1:8080/cell/public/top10", params, String.class);
 		return top10ListJsonStr;
 	}
+
+	@Override
+	public String queryScheduleMatches(Map<String, Object> parm) {
+		Map<String,Object> params = new HashMap<String,Object>();
+		params.put("date", parm.get("date"));
+		String scheduleMatchesJsonStr = restTemplate.postForObject("http://127.0.0.1:8080/cell/public/schedule/matches", params, String.class);
+		return scheduleMatchesJsonStr;
+	}
 }

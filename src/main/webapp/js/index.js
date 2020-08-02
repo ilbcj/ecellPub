@@ -141,8 +141,8 @@ $(function () {
             }
         ],
         onSelected: function (view, date, data) {
-            //pageJump('views/season/index.html');
-            console.log(date)
+        	var dateStr = new Date(date).format('yyyy-mm-dd');
+            pageJump('views/season/index.html?d='+dateStr);
         }
     });
 

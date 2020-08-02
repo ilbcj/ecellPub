@@ -48,3 +48,67 @@ $('#cover-mask').click(function () {
 $('#dt').click(function () {
     $('#cover-mask').removeClass('hide');
 });
+
+
+var total_height  = $('.details .left').outerHeight(true);
+$('.details .right').css({
+    'height':total_height,
+    'background': 'white'
+});
+
+$('.view-detail').click(function () {
+    var height = $(this).parentsUntil('.items').eq(1).outerHeight(true);
+    var index = $(this).parentsUntil('.items').eq(1).index();
+    var top = index * height + 6 +'px';
+    $('.right .triangle').animate({
+        'top':top
+    })
+});
+
+
+$(function () {
+	'use strict';
+	
+	// , headers: { 'x-requested-with': 'XMLHttpRequest' }
+    $.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+    
+	// update $.post, contentType --> application/json
+	$.extend({
+		'postjson': function( url, data, success, dataType ) {
+			$.ajax({
+				type: 'POST',
+				contentType: 'application/json;charset=UTF-8',
+				url: url,
+				data: data,
+				crossDomain: true, 
+				xhrFields: {withCredentials: true},
+				success: success,
+				dataType: dataType
+			});
+		}
+	});
+	
+	// Update table style
+	
+	// pace optinos
+	Pace.options.ajax.trackMethods.push("POST");
+	
+	// update date.toLocaleString
+	Date.prototype.toLocaleString = function() {
+        return this.getFullYear() + "年" + (this.getMonth() + 1) + "月" + this.getDate() + "日 " + this.getHours() + "点" + this.getMinutes() + "分" + this.getSeconds() + "秒";
+	};
+	Date.prototype.toLocaleString = function() {
+        return this.getFullYear() + "-" + (this.getMonth() + 1) + "-" + this.getDate() + " " + this.getHours() + ":" + this.getMinutes() + ":" + this.getSeconds();
+	};
+	
+	var basePath = '';
+	$('body').data('basePath', basePath);
+	
+	var date = getQueryVariable("d");
+	if(date) {
+		console.log(date);	
+	}
+	
+});
+
+

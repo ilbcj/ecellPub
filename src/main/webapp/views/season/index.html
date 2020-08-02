@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="../../dep/calendar/calendar.css">
     <link rel="stylesheet" href="../../dep/pacejs/pace.css">
+	<link rel="stylesheet" href="../../dep/lobibox/css/lobibox.css">
     <link rel="stylesheet" href="../../public/css/public.css">
     <link rel="stylesheet" href="../../css/season.css">
 </head>
@@ -13,28 +14,30 @@
     <div id="header">
         <div class="season-title">
             <div class="date">2020-06-02</div>
-            <div class="title">季后赛16进8-A组</div>
-            <div class="players">fengzi, Midas, Loup, Tossgirl</div>
+            <div class="title">季后赛16进8-A组\季后赛16进8-B组</div>
+            <div class="players">fengzi, Midas, Loup, Tossgirl\fengzi, Midas, Loup, Tossgirl</div>            
         </div>
     </div>
     <div id="content">
-        <div id="demo">
-            <div class="calender-content hide">
-                <div id="ca"></div>
-            </div>
-            <input type="text" id="dt" value="2020-6-29" readonly>
-            <img src="../../img/select-down.png" alt="" class="down">
-            <div id="dd"></div>
-        </div>
-        <div class="select-date">
-
+    	<div class="hide">
+	        <div id="demo">
+	            <div class="calender-content hide">
+	                <div id="ca"></div>
+	            </div>
+	            <input type="text" id="dt" value="2020-6-29" readonly>
+	            <img src="../../img/select-down.png" alt="" class="down">
+	            <div id="dd"></div>
+	        </div>
+	        <div class="select-date">
+	
+	        </div>
         </div>
         <div class="details clearfix">
-            <div class="left pull-left">
+            <div class="left pull-left items">
                 <div class="item">
                     <div class="flex-row-sb">
                         <span class="title">季后赛16进8-A组第一轮</span>
-                        <span class="view-detail"><a href="">详情</a></span>
+                        <span class="view-detail"><a href="javascript:;">详情</a></span>
                     </div>
                     <div class="flex-row-nc">
                         <div class="flex-row-nc">
@@ -67,7 +70,7 @@
                 <div class="item">
                     <div class="flex-row-sb">
                         <span class="title">季后赛16进8-A组第一轮</span>
-                        <span class="view-detail"><a href="">详情</a></span>
+                        <span class="view-detail"><a href="javascript:;">详情</a></span>
                     </div>
                     <div class="flex-row-nc">
                         <div class="flex-row-nc">
@@ -100,7 +103,7 @@
                 <div class="item">
                     <div class="flex-row-sb">
                         <span class="title">季后赛16进8-A组第一轮</span>
-                        <span class="view-detail"><a href="">详情</a></span>
+                        <span class="view-detail"><a href="javascript:;">详情</a></span>
                     </div>
                     <div class="flex-row-nc">
                         <div class="flex-row-nc">
@@ -230,6 +233,8 @@
 <script src="../../dep/jquery/jquery-3.4.1.min.js"></script>
 <script src="../../dep/calendar/js/calendar.js"></script>
 <script src="../../dep/pacejs/pace.js"></script>
+<script src="../../dep/lobibox/js/notifications.js"></script>
+<script src="../../public/js/public.js"></script>
 <script src="../../js/season.js"></script>
 
 </body>

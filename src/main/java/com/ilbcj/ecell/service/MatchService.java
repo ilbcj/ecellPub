@@ -13,4 +13,6 @@ public interface MatchService {
 
 	public String queryTop10(Map<String, Object> parm);
 
+	public String queryScheduleMatches(Map<String, Object> parm);
+
 }
