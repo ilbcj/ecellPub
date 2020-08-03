@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ilbcj.ecell.service.MatchService;
@@ -87,8 +88,8 @@ public class PublicController {
 	}
 	
 	/**
-	 * 查询比赛日信息和结果
-	 * @param 空
+	 * 查询比赛日信息
+	 * @param date 比赛日期
 	 * @return
 	 */
 	@RequestMapping(value="/schedule/matches")
@@ -101,5 +102,22 @@ public class PublicController {
 		}
 		return R.error("查询比赛日数据失败，请稍后再试！").toString();
 				
+	}
+	
+	/**
+	 * 查询比赛对战信息
+	 * @param scheduleId 赛程ID
+	 * @param setId 场次ID
+	 * @return
+	 */
+	@RequestMapping(value="/schedule/match/set", method = RequestMethod.POST)
+	public String queryScheduleMatchSet(@RequestBody Map<String,Object> parm) {
+		
+		String matchSetGames = matchService.queryScheduleMatchSet(parm);
+		
+		if(matchSetGames != null) {
+			return matchSetGames;
+		}
+		return R.error("查询比赛对战数据失败，请稍后再试！").toString();
 	}
 }

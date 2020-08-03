@@ -15,4 +15,6 @@ public interface MatchService {
 
 	public String queryScheduleMatches(Map<String, Object> parm);
 
+	public String queryScheduleMatchSet(Map<String, Object> parm);
+
 }
