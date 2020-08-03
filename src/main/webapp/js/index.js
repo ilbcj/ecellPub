@@ -141,7 +141,26 @@ $(function () {
             }
         ],
         onSelected: function (view, date, data) {
-        	var dateStr = new Date(date).format('yyyy-mm-dd');
+        	if( undefined == data ) {
+        		return false;
+        	}
+        	if(date >= new Date()) {
+        		var message = '比赛还未进行，请稍后再试!';
+				tipMessage(message, true);
+				return false;
+        	}
+        	var yearNum = new Date(date).getYear()+1900;
+        	var monthNum = new Date(date).getMonth()+1;
+        	if( new String(monthNum).length == 1 ) {
+        		monthNum = '0'+ monthNum;
+        	}
+        	var dateNum = new Date(date).getDate();
+        	if( new String(dateNum).length == 1 ) {
+        		dateNum = '0'+ dateNum;
+        	}
+        	
+        	var dateStr = yearNum + '-' + monthNum + '-' + dateNum;
+        	
             pageJump('views/season/index.html?d='+dateStr);
         }
     });

@@ -106,7 +106,54 @@ $(function () {
 	
 	var date = getQueryVariable("d");
 	if(date) {
-		console.log(date);	
+		//查询比赛日列表信息
+		var postData = {};
+		postData.date = date;
+		var urlTarget = basePath + '/public/schedule/matches';
+	    $.postjson(urlTarget + '?rand=' + Math.random(), JSON.stringify(postData), function(data,textStatus, jqXHR) {
+			if( data.code == 0 ) {
+				var seasonBasic = data.list;
+				
+				/*$('#profile_select_player1, #profile_select_player2').html('<li class="profileSelectPlayerItem" data-id="0"></li>');
+				
+				var player = null;
+				for( var index = 0; index < playersBasic.length; index++)
+				{
+					player = playersBasic[index];
+					$('#profile_select_player1, #profile_select_player2').append('<li class="profileSelectPlayerItem" data-id="' + player.nick + '">' + player.nick + '</li>');
+				}
+				
+				$('.profileSelectPlayerItem').on('click.ECELL.admin.detail', updatePlayerProfile);
+				
+				    //选手库显示
+			    $('.current-player').click(function () {
+			        $(this).siblings('.select-player-list').slideToggle(200);
+			        $(this).parentsUntil('.player-content').eq(1).siblings('.pull-left').find('.select-player-list').slideUp(200);
+			    });
+			
+			    $('.select-player').click(function (e) {
+			        e.stopPropagation();
+			    });
+			    
+			    $('.select-player-list ul li').click(function () {
+			    	$('#search_input1, #search_input2').text('');
+			    	$('.search_input1, .search_input2').val('');
+			    	$('.search_input1, .search_input2').change();
+			        $(this).parentsUntil('.select-player').eq(1).slideUp(200);
+			    });
+			    
+			    $('body').click(function () {
+			        $('.select-player-list').slideUp(200);
+			    });
+			    //搜索选手过滤
+			    $('.search_input1').fastLiveFilter('#profile_select_player1');
+			    $('.search_input2').fastLiveFilter('#profile_select_player2');*/
+				
+			} else {
+				var message = '获取赛季列表信息失败![' + data.msg + ', ' + data.code + ']，请稍后再试！';
+				tipMessage(message, false);
+			}
+		}, 'json');
 	}
 	
 });
