@@ -141,14 +141,15 @@ $(function () {
             }
         ],
         onSelected: function (view, date, data) {
-        	if( undefined == data ) {
+        	if(data == undefined) {
         		return false;
         	}
-        	if(date >= new Date()) {
-        		var message = '比赛还未进行，请稍后再试!';
-				tipMessage(message, true);
-				return false;
+        	else if(date >= new Date()) {
+        		var message = '比赛还未进行，请稍后再试！';
+				tipMessage(message);
+        		return false;
         	}
+        	
         	var yearNum = new Date(date).getYear()+1900;
         	var monthNum = new Date(date).getMonth()+1;
         	if( new String(monthNum).length == 1 ) {
@@ -161,7 +162,24 @@ $(function () {
         	
         	var dateStr = yearNum + '-' + monthNum + '-' + dateNum;
         	
-            pageJump('views/season/index.html?d='+dateStr);
+        	var postData = {};
+			postData.date = dateStr;
+			var urlTarget = basePath + '/public/schedule/matches';
+		    $.postjson(urlTarget + '?rand=' + Math.random(), JSON.stringify(postData), function(data,textStatus, jqXHR) {
+				if( data.code == 0 ) {
+					if( data.scheduleMatches.length == 0 ) {
+						/*var message = '非Ecell比赛日';
+						tipMessage(message);*/
+					}
+					else {
+						pageJump('views/season/index.html?d='+dateStr);
+					}
+					
+				} else {
+					var message = '获取赛季列表信息失败![' + data.msg + ', ' + data.code + ']，请稍后再试！';
+					tipMessage(message, false);
+				}
+			}, 'json');
         }
     });
 

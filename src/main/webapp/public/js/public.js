@@ -17,7 +17,7 @@ function tipMessage(message, isAutoClose) {
 	// isAutoClose = arguments[1]===undefined ? true : arguments[1];
 	var autoClose = arguments[1];
 	var type = 'error';
-	if( autoClose === undefined ) {
+	if( autoClose === undefined || autoClose == true) {
 		type = 'info';
 	}
 	Lobibox.notify(type, {
@@ -31,6 +31,7 @@ function tipMessage(message, isAutoClose) {
         hideClass: undefined,
         sound: undefined,
         img: undefined,
+        soundPath: '/dep/lobibox/sounds/',
         delay: autoClose
 	});
 };

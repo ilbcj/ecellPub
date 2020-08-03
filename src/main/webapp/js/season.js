@@ -112,7 +112,18 @@ $(function () {
 		var urlTarget = basePath + '/public/schedule/matches';
 	    $.postjson(urlTarget + '?rand=' + Math.random(), JSON.stringify(postData), function(data,textStatus, jqXHR) {
 			if( data.code == 0 ) {
-				var seasonBasic = data.list;
+				var scheduleMatches = data.scheduleMatches;
+				var title = '';
+				var players = '';
+				for(var index=0; index<scheduleMatches.length; index++) {
+					$('#seasonMatchDay').html(scheduleMatches[index].day);
+					title += scheduleMatches[index].title + '\\';
+					players += scheduleMatches[index].players.toString() + '\\';
+				}
+				title = title.substring(0,title.length-1);
+				$('#seasonMatchTitle').html(title);
+				players = players.substring(0,players.length-1);
+				$('#seasonMatchPlayers').html(players);
 				
 				/*$('#profile_select_player1, #profile_select_player2').html('<li class="profileSelectPlayerItem" data-id="0"></li>');
 				
