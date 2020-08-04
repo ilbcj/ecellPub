@@ -50,13 +50,8 @@ $('#dt').click(function () {
 });
 
 
-var total_height  = $('.details .left').outerHeight(true);
-$('.details .right').css({
-    'height':total_height,
-    'background': 'white'
-});
-
 $('.view-detail').click(function () {
+    changeDetailHeight();
     var height = $(this).parentsUntil('.items').eq(1).outerHeight(true);
     var index = $(this).parentsUntil('.items').eq(1).index();
     var top = index * height + 6 +'px';
@@ -64,6 +59,18 @@ $('.view-detail').click(function () {
         'top':top
     })
 });
+
+function changeDetailHeight() {
+    var game_height  = $('.details .left').outerHeight(true); //左边栏高度
+    var detail_height = $('.details .right').outerHeight(true); //详情高度
+    if (detail_height < game_height ) {
+        $('.details .right').css({
+            'height':game_height,
+            'background': 'white'
+        });
+    }
+}
+
 
 function resetSetsInfo() {
 	$('#seasonSet1,#seasonSet2,#seasonSet3,#seasonSet4,' 
@@ -252,7 +259,7 @@ $(function () {
 					title += scheduleMatches[index].title + '\\';
 					players += scheduleMatches[index].players.toString() + '\\';
 					
-					for(var setIndex = 0; setIndex < scheduleMatches[index].sets.length; setIndex++,setCount++) {
+					for(var setIndex = 0; setIndex < scheduleMatches[index].sets.length; setIndex++) {
 						var setInfo = scheduleMatches[index].sets[setIndex];
 						$('#seasonSet' + setCount).removeClass('hide');
 						$('#seasonSet' + setCount + ' .title').html(setInfo.title);
@@ -273,6 +280,10 @@ $(function () {
 							p2RaceBgClass = 'win-bg';
 							p2RaceBgImg = '../../img/win.png';
 						}
+						else if( setInfo.winner == 0 ) {
+							$('#seasonSet' + setCount).addClass('hide');
+							continue;
+						}
 						$('#seasonSet' + setCount + '_p1_race').addClass(p1RaceClass).attr('src','../../img/public/player_race_' + setInfo.p1Race.toLowerCase() + '.png');
 						$('#seasonSet' + setCount + '_p1_race_bg').addClass(p1RaceBgClass).attr('src',p1RaceBgImg);
 						$('#seasonSet' + setCount + '_p1_nick').html(setInfo.p1Nick);
@@ -286,12 +297,16 @@ $(function () {
 						$('#seasonSet' + setCount + '_detail').data('setId', setInfo.setId);
 						$('#seasonSet' + setCount + '_detail').data('pa', setInfo.p1Nick);
 						$('#seasonSet' + setCount + '_detail').data('pb', setInfo.p2Nick);
+						setCount++;
 					}
 				}
 				title = title.substring(0,title.length-1);
 				$('#seasonMatchTitle').html(title);
 				players = players.substring(0,players.length-1);
 				$('#seasonMatchPlayers').html(players);
+				
+				//获取初始化之后的左边栏高度然后改变详情高度
+				changeDetailHeight(); 
 				
 				$('#seasonSet1_detail').click();
 				
