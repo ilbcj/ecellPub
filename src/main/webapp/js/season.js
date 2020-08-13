@@ -51,7 +51,7 @@ $('#dt').click(function () {
 
 
 $('.view-detail').click(function () {
-    changeDetailHeight();
+    //changeDetailHeight();
     var height = $(this).parentsUntil('.items').eq(1).outerHeight(true);
     var index = $(this).parentsUntil('.items').eq(1).index();
     var top = index * height + 6 +'px';
@@ -187,6 +187,8 @@ function loadGameInfo(basePath, scheduleId, setId, pa, pb) {
 				$('#seasonSetGame' + index + '_p2_name').html(p2Name);
 			}
 			
+			changeDetailHeight();
+			
 		} else {
 			var message = '获取比赛对战信息失败![' + data.msg + ', ' + data.code + ']，请稍后再试！';
 			tipMessage(message, false);
@@ -306,7 +308,7 @@ $(function () {
 				$('#seasonMatchPlayers').html(players);
 				
 				//获取初始化之后的左边栏高度然后改变详情高度
-				changeDetailHeight(); 
+				//changeDetailHeight(); 
 				
 				$('#seasonSet1_detail').click();
 				

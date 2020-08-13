@@ -201,7 +201,9 @@ $(function () {
 	//绑定跳转选手详情页面
 	$('.sort-form tbody').delegate('tr','click',function () {
 	    var id = $(this).data('id'); //选手ID
-	    pageJump('./views/player-details/index.html?id='+id);
+	    if(id != "") {
+	    	pageJump('./views/player-details/index.html?id='+id);	
+	    }
 	});
 
 	//赛季显示
@@ -214,8 +216,12 @@ $(function () {
         e.stopPropagation();
     });
     
-    $('.search_list li').click(function () {
+    $('.search_list li').click(function (e) {
         $('.season-list').slideUp(200);
+        var seasonTitle = $(e.currentTarget).html();
+        $('.current-season-title').html(seasonTitle);
+        var seasonId = $(e.currentTarget).data('seasonid');
+        updateTop16(seasonId);
     });
     
     $('body').click(function () {
@@ -326,7 +332,20 @@ $(function () {
 			tipMessage(message, false);
 		}
 	}, 'json');
+	
+	updateSeason(2);
 });
+
+
+function updateTop16(seasonId) {
+	;
+	for(var index = 1; index<17; index++) {
+		$('#regular_' + index).data('id', top16Data[seasonId].regularTop16[index]);
+		$('#regular_' + index + '_name').html(top16Data[seasonId].regularTop16[index]);
+		$('#playoff_' + index).data('id', top16Data[seasonId].playoffTop16[index]);
+		$('#playoff_' + index + '_name').html(top16Data[seasonId].playoffTop16[index]);
+	}
+}
 
 function loadTop10(basePath, type, sort) {
 	//type:1 - winning, 2 - apm, 3 - resource
@@ -444,3 +463,88 @@ jQuery.fn.fastLiveFilter = function(list, options) {
     });
     return this;
 };
+
+function updateSeason(seasonId){
+	var seasonTitle = $('.search_list li[data-seasonid=' + seasonId + ']').children().html();
+	$('.current-season-title').html(seasonTitle);
+	updateTop16(seasonId);
+};
+
+top16Data = {
+	"1": {
+		"regularTop16":{
+			"1":"Zhanhun",
+			"2":"Jedi",
+			"3":"Mihu",
+			"4":"AP",
+			"5":"Jaystar",
+			"6":"Fengzi",
+			"7":"Qiaogege",
+			"8":"Loup",
+			"9":"DuGuQiuBai",
+			"10":"PPPPPP",
+			"11":"Free",
+			"12":"Kukuboy",
+			"13":"小帅",
+			"14":"Caicai",
+			"15":"FJ",
+			"16":"guoqian"
+		},
+		"playoffTop16":{
+			"1":"Mighty",
+			"2":"Midas",
+			"3":"Mihu",
+			"4":"Fengzi",
+			"5":"RainBOw",
+			"6":"Motive",
+			"7":"soO",
+			"8":"KOP",
+			"9":"Jaystar",
+			"10":"Jedi",
+			"11":"Qiaogege",
+			"12":"Zhanhun",
+			"13":"AP",
+			"14":"Loup",
+			"15":"Tossgirl",
+			"16":"ruin"
+		}
+	},
+	"2": {
+		"regularTop16":{
+			"1":"Mihu",
+			"2":"Fengzi",
+			"3":"DuGuQiuBai",
+			"4":"AP",
+			"5":"guoqian",
+			"6":"KID",
+			"7":"Jaystar",
+			"8":"Zhanhun",
+			"9":"小帅",
+			"10":"影子渔",
+			"11":"Qiujie",
+			"12":"Jujishou",
+			"13":"Kukuboy",
+			"14":"xiaoyushen",
+			"15":"Qiaogege",
+			"16":"xiaoxiaoma"
+		},
+		"playoffTop16":{
+			"1":"",
+			"2":"",
+			"3":"",
+			"4":"",
+			"5":"",
+			"6":"",
+			"7":"",
+			"8":"",
+			"9":"",
+			"10":"",
+			"11":"",
+			"12":"",
+			"13":"",
+			"14":"",
+			"15":"",
+			"16":""
+		}
+	}
+}
