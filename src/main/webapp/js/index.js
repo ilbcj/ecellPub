@@ -120,24 +120,16 @@ $(function () {
                 value: '季后赛8进4 CD组BO7单败'
             },
             {
-                date: '2020/8/21',
+                date: '2020/8/24',
                 value: '季后赛4进2 AB组BO7单败'
             },
             {
-                date: '2020/8/22',
-                value: '休息'
-            },
-            {
-                date: '2020/8/23',
+                date: '2020/8/25',
                 value: '季后赛 三四名BO9'
             },
             {
-                date: '2020/8/24',
-                value: '季后赛决赛 冠亚军BO9'
-            },
-            {
                 date: '2020/8/26',
-                value: 'KCM血战到底'
+                value: 'KCM血战到底 / 季后赛 冠亚军BO9'
             }
         ],
         onSelected: function (view, date, data) {
